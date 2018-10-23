@@ -25,6 +25,11 @@ angular.module('angularCroppie', []).
         };
 
         var c = new Croppie($element[0], options);
+        c.bind({
+          url: ctrl.src
+        }).then(function(){
+          c.setZoom(0);
+        });
 
         ctrl.$onChanges = function (changesObj) {
           var src = changesObj.src && changesObj.src.currentValue;
